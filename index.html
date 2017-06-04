@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="img/title-logo.png">
+	<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+  	<link rel="stylesheet" href="css/build/style.css">
+  	<script async src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<title>DiplomaApp2Land</title>
+</head>
+<body>
+	<div class="application">
+		<header class="application__name">
+			<h3 class="page-header text-center bg-primary">APP2LAND [DIPLOMA-PROJECT]</h3>
+		</header>
+
+		<section id="user-inputs">
+			<form>
+				<h3 class="user-inputs__header">ENTER YOUR DATA</h3>
+				<input type="text" id="name" placeholder="Name">
+				<input type="text" id="rank" placeholder="Pilot rank">
+				<input type="text" id="airplaine-class" placeholder="Airplaine class">
+				<input type="text" id="airplaine-wind" placeholder="Max airplaine wind">
+				<label style="margin-left: 35px;">now</label><input type="radio" id="time" name="time">
+				<label>2h</label><input type="radio" id="time" name="time">
+				<label>4h</label><input type="radio" id="time" name="time">
+				<label>8h</label><input type="radio" id="time" name="time">
+				<button id="send-data" class="btn btn-primary">SEND DATA</button>
+			</form>
+		</section>
+
+		<section id="system-output">
+			<form>
+				<h3 class="user-inputs__header">SYSTEM RESULTS</h3>
+				<label>Location</label><input type="text" id="location" >
+				<label>Weather</label><textarea id="weather" ></textarea>
+				<label>Relief</label><input type="text" id="relief" >
+				<label>Visibility</label><input type="text" id="visibility" >
+				<button id="save-data" class="btn btn-warning">SAVE TO DATABASE</button>
+				<span id="system-result">Landing allowed!</span>
+			</form>
+		</section>
+
+		<footer class="application__author">
+			<span>Author: Ivashyn Kyryl, TP-413</span>
+		</footer>
+
+	</div>
+
+<div id="map"></div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6zw92Xj8K0Lg-h0wQyqCjRfR4wVMbXw4&callback=initMap"></script>
+
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
