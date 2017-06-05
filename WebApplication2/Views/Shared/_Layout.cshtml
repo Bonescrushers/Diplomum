@@ -1,43 +1,62 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE HTML>
 <html>
-<head>
+<head lang="en">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
+    <link rel="shortcut icon" href="~/App_Data/title-logo.png">
+    <link href="Content/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Content/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title – приложение ASP.NET</title>
+    <script async src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <title>DiplomaApp2Land</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
-                    <li>@Html.ActionLink("О программе", "About", "Home")</li>
-                    <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
+    <div class="application">
+        <header class="application__name">
+            <h3 class="page-header text-center bg-primary">APP2LAND [DIPLOMA-PROJECT]</h3>
+        </header>
+        @*<div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        @Html.ActionLink("Имя приложения", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Домашняя страница", "Index", "Home")</li>
+                            <li>@Html.ActionLink("О программе", "About", "Home")</li>
+                            <li>@Html.ActionLink("Контакт", "Contact", "Home")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>*@
+        @*<div class="container body-content">*@
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+        @*<hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
+            </footer>*@
+        @*</div>*@
+        <footer class="application__author">
+            <span>Author: Лол, давай не будешь ебашить свое имя куда попало, я ж могу не заметить, мудак.</span>
         </footer>
     </div>
+    <div id="map"></div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6zw92Xj8K0Lg-h0wQyqCjRfR4wVMbXw4&callback=initMap"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/script.js"></script>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+
+        @RenderSection("scripts", required: false)
 </body>
 </html>

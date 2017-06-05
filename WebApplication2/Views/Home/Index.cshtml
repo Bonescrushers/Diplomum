@@ -1,7 +1,38 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@*@Styles.Render("~/Content//bootstrap.min.css")*@
 
-<div class="jumbotron">
-    <h1>Так, помацаем, что у нас тут</h1>
-</div>
+
+    <section id="user-inputs">
+@using (Ajax.BeginForm("Index", new AjaxOptions { UpdateTargetId = "result_form", InsertionMode = InsertionMode.Replace }))
+{
+            <h3 class="user-inputs__header">ENTER YOUR DATA</h3>
+            <input name="Name" type="text" id="name" placeholder="Name" required="required"><span class="req-star">*</span>
+            @Html.DropDownList("pilot-rank", new SelectList(new string[] { "I", "II", "III"}), "Pilot rank",new { @class="selectpicker", required = "required" })
+            @Html.DropDownList("airplaine-class", new SelectList(new string[] { "A", "B", "C","D" }), "Airplaine class", new { @class = "selectpicker", required="required"})
+            <input name="Wind" type="text" id="airplaine-wind" required="required" placeholder="Max airplaine wind"><span class="req-star">*</span>
+            <label style="margin-left: 35px;">now</label> @Html.RadioButton("Time", "Now", true)
+            <label>2h</label>@Html.RadioButton("Time", "H3")
+            <label>4h</label>@Html.RadioButton("Time", "H6")
+            <label>8h</label>@Html.RadioButton("Time", "H9")
+            <input type="submit" id="send-data" class="btn btn-primary" value="SEND DATA" />
+}
+</section>
+    <section id="system-output">
+        @Html.Partial("ResultForm",null)
+@*@using (Html.BeginForm())
+{
+            <h3 class="user-inputs__header">SYSTEM RESULTS</h3>
+            <label>Location</label><input name="Location" type="text" id="location">
+            <label>Weather</label><input name="Weather" type="text" id="weather">
+            <label>Pressure</label><input name="Pressure" type="text" id="pressure">
+            <label>Relief</label><input name="Relief" type="text" id="relief">
+            <label>Visibility</label><input name="Visibility" type="text" id="visibility">
+            <button id="save-data" class="btn btn-warning">SAVE TO DATABASE</button>
+            <span id="system-result">Landing allowed!</span>
+}*@
+    </section>
+
+   

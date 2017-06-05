@@ -1,0 +1,30 @@
+﻿@model WebApplication2.Models.Results
+
+@using (Html.BeginForm("Index","Home",null, FormMethod.Post, new {id="result_form"}))
+{
+    if (Model != null)
+    {
+    <h3 class="user-inputs__header">SYSTEM RESULTS</h3>
+            <label>Location</label><input name="Location" type="text" id="location" value=@Model.Location>
+            <label>Weather</label><input name="Weather" type="text" id="weather" value=@Model.Weather>
+            <label>Pressure</label><input name="Pressure" type="text" id="pressure" value=@Model.Pressure>
+            <label>Relief</label><input name="Relief" type="text" id="relief"  value=@Model.Relief>
+            <label>Visibility</label><input name="Visibility" type="text" id="visibility"  value=@Model.Visibility>
+            <button id="save-data" class="btn btn-warning">SAVE TO DATABASE</button>
+            <span id="system-result">Landing allowed!</span>
+    }
+    else
+    {
+        <h3 class="user-inputs__header">SYSTEM RESULTS</h3>
+        <label>Location</label><input name="Location" type="text" id="location" >
+        <label>Weather</label><input name="Weather" type="text" id="weather">
+        <label>Pressure</label><input name="Pressure" type="text" id="pressure">
+        <label>Relief</label><input name="Relief" type="text" id="relief">
+        <label>Visibility</label><input name="Visibility" type="text" id="visibility">
+        <button id="save-data" class="btn btn-warning">SAVE TO DATABASE</button>
+            <span id="system-result">Landing allowed!</span>
+    }
+}
+<script async src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
